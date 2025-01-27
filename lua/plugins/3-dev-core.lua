@@ -269,6 +269,22 @@ return {
       },
     }
   },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "nvimtools/none-ls.nvim",
+    },
+    config = function()
+      require("mason-null-ls").setup({
+        automatic_installation = true,
+        ensure_installed = {
+          "ansible-language-server", "angular-language-server", "asm-lsp", "asmfmt", "bash-debug-adapter", "bash-language-server", "checkmake", "codelldb", "clangd", "cmakelint", "csharpier", "cucumber-language-server", "debugpy", "delve", "docker-compose-language-service", "dockerfile-language-server", "elixir-ls", "eslint-lsp", "fantomas", "findent", "firefox-debug-adapter", "fortls", "fsautocomplete", "golangci-lint", "golangci-lint-langserver", "gopls", "google-java-format", "helm-ls", "html-lsp", "java-test", "json-lsp", "jq", "jsonlint", "kotlin-debug-adapter", "kotlin-language-server", "ktlint", "lua-language-server", "marksman", "matlab-language-server", "neocmakelsp", "netcoredbg", "omnisharp", "perlnavigator", "php-debug-adapter", "phpactor", "php-cs-fixer", "phpstan", "rubocop", "pyright", "autopep8", "rust-analyzer", "selene", "shellcheck", "shfmt", "svelte-language-server", "stylua", "taplo", "typescript-language-server", "yaml-language-server", "yamllint", "yamlfmt", "zls",
+        },
+      })
+    end,
+},
 
   --  Schema Store [mason extra schemas]
   --  https://github.com/b0o/SchemaStore.nvim
