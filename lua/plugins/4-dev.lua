@@ -332,19 +332,25 @@ return {
 
   --  copilot [github code suggestions]
   --  https://github.com/github/copilot.vim
+  --  copilot-cmp
+  --  https://github.com/zbirenbaum/copilot-cmp
   --  As alternative to chatgpt, you can use copilot uncommenting this.
   --  Then you must run :Copilot setup
-  -- {
-  --   "github/copilot.vim",
-  --   event = "User BaseFile"
-  -- },
-  -- copilot-cmp
-  -- https://github.com/zbirenbaum/copilot-cmp
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   opts = { suggesion = { enabled = false }, panel = { enabled = false } },
-  --   config = function (_, opts) require("copilot_cmp").setup(opts) end
-  -- },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    config = function () require("copilot_cmp").setup() end,
+    dependencies = {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      config = function()
+        require("copilot").setup({
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+        })
+      end,
+    },
+  },
 
   -- [guess-indent]
   -- https://github.com/NMAC427/guess-indent.nvim

@@ -549,6 +549,9 @@ return {
           completion = cmp_config_window,
           documentation = cmp_config_window,
         },
+        experimental = {
+          ghost_text = true,
+        },
         mapping = {
           ["<PageUp>"] = cmp.mapping.select_prev_item {
             behavior = cmp.SelectBehavior.Select,
@@ -624,6 +627,7 @@ return {
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp", priority = 1000 },
+          { name = "copilot",  priority = 900 },
           { name = "lazydev",  priority = 850 },
           { name = "luasnip",  priority = 750 },
           { name = "buffer",   priority = 500 },

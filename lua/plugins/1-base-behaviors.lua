@@ -714,4 +714,39 @@ return {
     }
   },
 
+  { "tpope/vim-surround" },
+  {
+    "Isrothy/neominimap.nvim",
+    init = function()
+      -- The following options are recommended when layout == "float"
+      vim.opt.wrap = false
+      vim.opt.sidescrolloff = 36 -- Set a large value
+
+      --- Put your configuration here
+      ---@type Neominimap.UserConfig
+      vim.g.neominimap = {
+        auto_enable = true,
+        click = {
+          -- Enable mouse click on minimap
+          enabled = true, ---@type boolean
+          -- Automatically switch focus to minimap when clicked
+          auto_switch_focus = true, ---@type boolean
+        },
+      }
+    end,
+  },
+  {
+    "Pocco81/auto-save.nvim",
+    config = function()
+      require("auto-save").setup()
+    end,
+  },
+  { "wakatime/vim-wakatime" },
+  { "mg979/vim-visual-multi" },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+  },
 } -- end of return
